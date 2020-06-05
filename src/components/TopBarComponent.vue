@@ -3,11 +3,11 @@
     <div class="flex items-center">
       <div class="ml-2">
         <i
-          :class="
-            `ml-4 mr-2 cursor-pointer fa fa-${
-              showViews ? 'arrow-right' : 'arrow-left'
-            }`
-          "
+          class="ml-4 mr-2 cursor-pointer fa "
+          :class="{
+            'fa-arrow-right': showViews,
+            'fa-arrow-left': !showViews
+          }"
           @click="toggleSidebar()"
         ></i>
       </div>

@@ -1,21 +1,20 @@
 <template>
   <div
-    :class="
-      `${
-        isToggle ? 'hidden' : ''
-      } sidebar bg-gray-900-spotify w-48 flex-none  flex flex-col justify-between font-semibold`
-    "
+    class="sidebar bg-gray-900-spotify w-48 flex-none  flex flex-col justify-between font-semibold"
+    :class="{
+      hidden: isToggle
+    }"
   >
     <!-- Section 1 General Links -->
     <ul class="py-6">
       <li
         v-for="sel in sidebarIndexElems"
         :key="sel.id"
-        :class="
-          `border-l-4 border-${
-            activeRoute() !== sel.route ? 'transparent' : 'green-600'
-          }`
-        "
+        class="border-l-4"
+        :class="{
+          'border-transparent': activeRoute() !== sel.route,
+          'border-green-600': activeRoute() === sel.route
+        }"
       >
         <router-link
           :to="{ name: sel.route }"

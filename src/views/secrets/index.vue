@@ -19,11 +19,8 @@
             secrets in total
             <i
               v-tooltip.right="tooltips.change"
-              :class="
-                `ml-4 mr-2 cursor-pointer fa fa-${
-                  showViews ? 'table' : 'address-card'
-                }`
-              "
+              class="ml-4 mr-2 cursor-pointer fa "
+              :class="{ 'fa-table': showViews, 'fa-address-card': !showViews }"
               @click="showViews = !showViews"
             ></i>
             <i

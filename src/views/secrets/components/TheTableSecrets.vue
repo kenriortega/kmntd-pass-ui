@@ -67,7 +67,10 @@
                   :ref="`span-${indice}`"
                   @dblclick="editingSecret(indice)"
                   @blur="onFinishToEdditSecret(indice, row.name)"
-                  :class="`text-${isCoping === indice ? 'green' : 'gray'}-700`"
+                  :class="{
+                    'text-green-700': isCoping === indice,
+                    'text-gray-700': isCoping !== indice
+                  }"
                 >
                   {{ changed === indice ? value : '' }}
                 </span>
@@ -83,11 +86,11 @@
                     ? onFinishToEdditSecret(indice, row.name)
                     : editingSecret(indice)
                 "
-                :class="
-                  `text-red-400 ml-2 my-2 mr-2 fa ${
-                    isEditing === indice ? 'fa-check-double' : 'fa-edit'
-                  }`
-                "
+                class="text-red-400 ml-2 my-2 mr-2 fa"
+                :class="{
+                  'fa-check-double': isEditing === indice,
+                  'fa-edit': isEditing !== indice
+                }"
               ></i>
               <i
                 class="text-red-400 ml-2 my-2 mr-2 fa fa-trash-alt"
@@ -105,11 +108,11 @@
                 "
               >
                 <i
-                  :class="
-                    `fa fa-${
-                      changed === false ? 'lock' : 'clipboard'
-                    } text-green-700`
-                  "
+                  class="text-green-700 fa"
+                  :class="{
+                    'fa-lock': changed === false,
+                    'fa-clipboard': changed === true
+                  }"
                 ></i>
                 {{ changed !== indice ? 'Get Secret' : 'Copy Secret' }}
               </button>

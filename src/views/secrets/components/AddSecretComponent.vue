@@ -70,11 +70,8 @@
         <div class="flex flex-col items-center py-2">
           <button
             :disabled="invalid"
-            :class="
-              `text-green-500 hover:text-white hover:bg-green-500 border border-green-500 text-xs font-semibold rounded-full mt-3 px-4 py-1 leading-normal ${
-                invalid ? 'cursor-not-allowed opacity-50' : ''
-              }`
-            "
+            class="text-green-500 hover:text-white hover:bg-green-500 border border-green-500 text-xs font-semibold rounded-full mt-3 px-4 py-1 leading-normal"
+            :class="{ 'cursor-not-allowed opacity-50': invalid }"
             type="submit"
           >
             Create

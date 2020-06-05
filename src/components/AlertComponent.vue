@@ -1,20 +1,20 @@
 ,<template>
   <div
-    :class="
-      `p-2 bg-${
-        notification.error === 'Unauthorized' ? 'yellow' : 'red'
-      }-800 items-center text-${
-        notification.error === 'Unauthorized' ? 'yellow' : 'red'
-      }-100 leading-none lg:rounded-full flex lg:inline-flex`
-    "
+    :class="{
+      'bg-yellow-800': notification.error === 'Unauthorized',
+      'bg-red-800': notification.error !== 'Unauthorized',
+      'text-yellow-100': notification.error === 'Unauthorized',
+      'text-red-100': notification.error !== 'Unauthorized'
+    }"
+    class="p-2 leading-none lg:rounded-full flex lg:inline-flex items-center"
     role="alert"
   >
     <span
-      :class="
-        `flex rounded-full bg-${
-          notification.error === 'Unauthorized' ? 'yellow' : 'red'
-        }-500 uppercase px-2 py-1 text-xs font-bold mr-3`
-      "
+      class="flex rounded-full uppercase px-2 py-1 text-xs font-bold mr-3"
+      :class="{
+        'bg-yellow-500': notification.error === 'Unauthorized',
+        'bg-red-500': notification.error === 'Unauthorized'
+      }"
       >{{ notification.statusCode }}</span
     >
     <span class="font-semibold mr-2 text-left flex-auto">{{

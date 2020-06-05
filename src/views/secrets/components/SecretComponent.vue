@@ -42,18 +42,21 @@
                 "
               >
                 <i
-                  :class="
-                    `fa fa-${
-                      changed === false ? 'lock' : 'clipboard'
-                    } text-green-700`
-                  "
+                  class="text-green-700 fa"
+                  :class="{
+                    'fa-lock': changed === false,
+                    'fa-clipboard': changed === true
+                  }"
                 ></i>
                 {{ changed === false ? 'Get Secret' : 'Copy Secret' }}
               </button>
               <span>
                 <p
                   v-if="showSecrets"
-                  :class="`text-${isCoping === indice ? 'green' : 'gray'}-700`"
+                  :class="{
+                    'text-green-700': isCoping === indice,
+                    'text-gray-700': isCoping !== indice
+                  }"
                 >
                   {{ value }}
                 </p></span
