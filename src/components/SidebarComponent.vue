@@ -36,12 +36,11 @@
           {{ e.name }}
         </h3>
         <ul
-          :class="
-            `leading-extra-loose ${e.name !== 'categories' ? 'mb-40' : ''}`
-          "
+          class="leading-extra-loose"
+          :class="{ 'mb-40': e.name !== 'categories' }"
         >
           <li v-for="sub in e.subitems" :key="sub.id" class="truncate">
-            <i :class="`fa fa-${sub.icon}`"></i>
+            <i :class="sub.icon"></i>
             <span
               class="ml-2 border-b hover:border-green-700 cursor-pointer"
               @click="filterByName(e.name, sub.name)"
@@ -82,13 +81,13 @@ export default {
         {
           id: Math.random().toString(),
           name: 'Secrets',
-          icon: 'lock',
+          icon: 'fa fa-lock',
           route: ROUTES.SECRETS.name
         },
         {
           id: Math.random().toString(),
           name: 'Profile',
-          icon: 'user',
+          icon: 'fa fa-user',
           route: ROUTES.PROFILE.name
         }
       ],
@@ -100,31 +99,31 @@ export default {
             {
               id: Math.random().toString(),
               name: 'ALL',
-              icon: 'database',
+              icon: 'fa fa-database',
               filter: 'all'
             },
             {
               id: Math.random().toString(),
               name: 'Servers',
-              icon: 'server',
+              icon: 'fa fa-server',
               filter: 'servers'
             },
             {
               id: Math.random().toString(),
               name: 'Services',
-              icon: 'signal',
+              icon: 'fa fa-signal',
               filter: 'services'
             },
             {
               id: Math.random().toString(),
               name: 'Personal',
-              icon: 'users',
+              icon: 'fa fa-users',
               filter: 'personal'
             },
             {
               id: Math.random().toString(),
               name: 'Payments',
-              icon: 'address-card',
+              icon: 'fa fa-address-card',
               filter: 'payments'
             }
           ]
