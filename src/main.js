@@ -4,7 +4,8 @@ import router from './router'
 import store from './store'
 import '@/assets/main.scss'
 import '@/assets/css/all.min.css'
-
+import '@/assets/components/tooltips.scss'
+import '@/assets/components/toaster.scss'
 // externals
 import VTooltip from 'v-tooltip'
 import Toaster from 'v-toaster'
