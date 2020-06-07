@@ -165,7 +165,10 @@ export default {
           this.user.token
         )
         if (res.status === 202) {
-          this.$toaster.success(`Yours password update are ${res.data.result}`)
+          this.$toaster.success(
+            `Yours password update are ${res.data.result} redirecting to login`
+          )
+          this.$router.push({ name: 'login' })
         }
       } catch (err) {
         this.notification = err.response.data
